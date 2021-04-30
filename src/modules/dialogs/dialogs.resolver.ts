@@ -1,10 +1,7 @@
 import {
   Args,
-  Mutation,
   Query,
   Resolver,
-  Subscription,
-  Context,
 } from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
 
