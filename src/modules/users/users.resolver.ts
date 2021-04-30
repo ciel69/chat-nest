@@ -8,18 +8,18 @@ import {
 } from '@nestjs/graphql';
 
 import { PubSub } from 'graphql-subscriptions';
-import { UserService } from './user.service';
+import { UsersService } from './users.service';
 import { User } from './models/user.model';
 import { NewUserInput } from './dto/new-user.input';
 
 const pubSub = new PubSub();
 
 @Resolver(() => User)
-export class UserResolvers {
-  constructor(private readonly userService: UserService) {}
+export class UsersResolver {
+  constructor(private readonly userService: UsersService) {}
 
   @Query(() => [User])
-  async allUsers(): Promise<User[]> {
+  async users(): Promise<User[]> {
     return await this.userService.findAll();
   }
 

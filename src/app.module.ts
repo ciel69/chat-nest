@@ -5,7 +5,8 @@ import { ConfigModule } from '@nestjs/config';
 
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { User } from './modules/user/models/user.model';
+import { User } from './modules/users/models/user.model';
+import { Dialog } from './modules/dialogs/models/dialog.model';
 import AppModules from './modules';
 
 @Module({
@@ -18,7 +19,7 @@ import AppModules from './modules';
       username: process.env.DATABASE_USER,
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_DB,
-      entities: [User],
+      entities: [User, Dialog],
       ssl: {
         rejectUnauthorized: false,
       },

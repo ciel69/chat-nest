@@ -1,13 +1,13 @@
 import { Injectable } from '@nestjs/common';
-
-import { User } from './models/user.model';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+
+import { User } from './models/user.model';
 
 import { NewUserInput } from './dto/new-user.input';
 
 @Injectable()
-export class UserService {
+export class UsersService {
   user = [];
 
   constructor(
