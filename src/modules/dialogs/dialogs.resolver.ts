@@ -1,10 +1,7 @@
 import {
   Args,
-  Mutation,
   Query,
   Resolver,
-  Subscription,
-  Context,
 } from '@nestjs/graphql';
 import { PubSub } from 'graphql-subscriptions';
 
@@ -24,7 +21,6 @@ export class DialogsResolver {
   }
 
   @Query(() => Dialog)
-  // @UseGuards(GqlAuthGuard)
   async dialog(
     @Args('id', ParseIntPipe)
     id: number,

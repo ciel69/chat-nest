@@ -11,6 +11,7 @@ import { PubSub } from 'graphql-subscriptions';
 import { UsersService } from './users.service';
 import { User } from './models/user.model';
 import { NewUserInput } from './dto/new-user.input';
+import { ParseIntPipe } from '@nestjs/common';
 
 const pubSub = new PubSub();
 
@@ -21,6 +22,14 @@ export class UsersResolver {
   @Query(() => [User])
   async users(): Promise<User[]> {
     return await this.userService.findAll();
+  }
+
+  @Query(() => User)
+  async user(
+    @Args('id', ParseIntPipe)
+    id: number,
+  ): Promise<User> {
+    return await this.userService.getUser(id);
   }
 
   @Query(() => User)

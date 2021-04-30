@@ -30,7 +30,7 @@ export class User {
   @Column({ length: 255, nullable: true })
   picture: string;
 
-  @Field(() => Dialog)
+  @Field(() => [Dialog])
   @ManyToMany((type) => Dialog, (dialog) => dialog.users)
   dialogs: Dialog[];
 }
