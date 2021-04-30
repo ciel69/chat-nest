@@ -6,14 +6,14 @@ import {
   OneToMany,
   JoinTable,
 } from 'typeorm';
-import { Field, ObjectType } from '@nestjs/graphql';
+import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 import { User } from '../../users/models/user.model';
 
 @ObjectType()
 @Entity('dialogs')
 export class Dialog {
-  @Field()
+  @Field((type) => ID)
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -33,7 +33,7 @@ export class Dialog {
   })
   public createdAt: Date;
 
-  @Field(() => User)
+  @Field(() => [User])
   @ManyToMany((type) => User, (user) => user.dialogs)
   @JoinTable()
   users: User[];

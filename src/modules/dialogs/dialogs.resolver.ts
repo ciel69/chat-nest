@@ -24,7 +24,6 @@ export class DialogsResolver {
   }
 
   @Query(() => Dialog)
-  // @UseGuards(GqlAuthGuard)
   async dialog(
     @Args('id', ParseIntPipe)
     id: number,
